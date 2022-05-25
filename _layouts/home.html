@@ -1,0 +1,85 @@
+---
+layout: default
+---
+
+<div class="home" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+
+    <div class="intro">
+        <div class="row justify-content-start" style="flex-wrap: nowrap;">
+            <div class="col-12 col-md-5 col-lg-6 order-1 order-md-1">
+                <h1>What can we build for you?</h1>
+                <p>Since 2009, we've been building high quality web and mobile apps that run fast and look great on every device.</p>
+                <div class="call">
+                    <div class="call-box-top">
+                        <div class="call-phone"><strong>Facebook messenger: </strong>
+                            <a href="http://m.me/ChumbokIT" target="_blank">ChumbokIT</a>
+                        </div>
+                    </div>
+
+                    <div class="call-box-bottom">
+                        <a class="button" href="contact">CONTACT</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-7 col-lg-6 order-2 order-md-2 position-relative">
+                <img class="intro-image intro-image-absolute intro-image-hide-mobile" src="assets/img/pointing.svg">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="services">
+        <h2 class="services-header"><strong>What Can We Do For You?</strong></h2>
+        <div class="row justify-content-start wrap">
+
+            <div class="col-12 col-md-6 mb-1">
+                <div class="service service-summary">
+                    <div class="service-content">
+                        <h3 class="service-title">I need a web or mobile app</h3>
+                        <p>Modernize your enterprise with web and mobile apps that run fast, scale to thousands of
+                            users, and look sharp on phones, tablets, and computers.</p>
+                        <div class="call-box-bottom">
+                            <a class="button" href="contact">Custom Web and Mobile App Development</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 mb-1">
+                <div class="service service-summary">
+                    <div class="service-content">
+                        <h3 class="service-title">I need enterprise software</h3>
+                        <p>Transform your business with custom enterprise software that manages your data at scale,
+                            helps your new and old systems talk to each other, and automates business processes and workflows.</p>
+                        <div class="call-box-bottom">
+                            <a class="button" href="contact">Custom Enterprise Software Development</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row"></br></br></br></div>
+
+    <div class="services">
+        <h2 class="services-header"><strong>We enjoy working with</strong></h2>
+        <div class="row justify-content-start wrap tech-box-group">
+
+            {% for tech in site.data.tech %}
+            <div class="col-12 col-md-4 mb-1 tech-box">
+                <a target="_blank" href="{{ tech.website }}">
+                    <img alt="{{ tech.title }}" class="tech-image" src="{{ tech.image }}">
+                    <div>
+                        <h3 class="tech-desc-title">{{ tech.title }}</h3>
+                        <p class="truncate">{{ tech.desc }}</p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+</div>

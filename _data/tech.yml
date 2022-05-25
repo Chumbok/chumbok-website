@@ -1,0 +1,56 @@
+- title: Java
+  website: https://openjdk.java.net/
+  image: assets/img/java.png
+  desc: One of the most reliable, powerful, and popular software solutions for enterprise app development is the Java 
+    programming language.
+
+- title: Spring Framework
+  website: https://spring.io/
+  image: assets/img/spring-framework-icon.png
+  desc: Level up your Java code and explore what Spring can do for you.
+
+- title: Android
+  website: https://www.android.com/
+  image: assets/img/android-os.png
+  desc: Build your own app for million of Android devices.
+
+- title: Flutter
+  website: https://flutter.dev/
+  image: assets/img/flutter.png
+  desc: Flutter is an open source framework by Google for building beautiful, natively compiled, multi-platform 
+    applications from a single codebase.
+
+- title: Wordpress
+  website: https://wordpress.org/
+  image: assets/img/wordpress.png
+  desc: Build custom WP site.
+
+- title: Python
+  website: https://www.python.org/
+  image: assets/img/python.png
+  desc: Python is an interpreted high-level general-purpose programming language. Python's design philosophy emphasizes
+    code readability with its notable use of significant indentation.
+
+- title: React
+  website: https://reactjs.org/
+  image: assets/img/reactjs.png
+  desc: React makes it painless to create interactive UIs. Design simple views for each state in your application, and
+    React will efficiently update and render just the right components when your data changes.
+
+- title: Kubernetes
+  website: https://kubernetes.io/
+  image: assets/img/kubernetes.png
+  desc: Kubernetes, also known as K8s, is an open-source system for automating deployment, scaling, and management of
+    containerized applications.
+
+- title: AWS
+  website: https://aws.amazon.com/
+  image: assets/img/aws.png
+  desc: Amazon Web Services (AWS) is a subsidiary of Amazon providing on-demand cloud computing platforms and APIs to
+    individuals, companies, and governments, on a metered pay-as-you-go basis.
+
+- title: Docker
+  website: https://www.docker.com/
+  image: assets/img/docker.png
+  desc: Docker takes away repetitive, mundane configuration tasks and is used throughout the development lifecycle for
+    fast, easy and portable application development - desktop and cloud.

@@ -1,0 +1,33 @@
+title: Chumbok IT
+description: >-
+  Grow business using software.
+
+author:
+  name: Chumbok IT
+  email: mahmood@chumbok.com
+
+baseurl: ""
+url: "https://chumbok.com"
+logo: "/assets/img/logo.png"
+
+google_analytics: UA-195294918-1
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+minima:
+  timezone: Europe/Amsterdam
+  social_links:
+    facebook: ChumbokIT
+    github: Chumbok
+    twitter: ChumbokIT
+    linkedin_company: chumbok-it
+
+header_pages:
+  - services.markdown
+  - blogs.markdown
+  - about.markdown
+  - contact.markdown
