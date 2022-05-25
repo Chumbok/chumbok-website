@@ -25,4 +25,4 @@ jobs:
           provider: 'github'
           token: ${{ secrets.GH_TOKEN }}
           branch: 'gh-pages'
-          cname: 'beta.chumvok.org'
+          cname: 'beta.chumbok.com'
