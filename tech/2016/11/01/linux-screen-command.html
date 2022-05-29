@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>লিনাক্স স্ক্রীন(screen) কমান্ড | Chumbok IT</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="লিনাক্স স্ক্রীন(screen) কমান্ড" />
+<meta name="author" content="Maruf Hassan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="লিনাক্স স্ক্রীন চিটশীট" />
+<meta property="og:description" content="লিনাক্স স্ক্রীন চিটশীট" />
+<link rel="canonical" href="https://chumbok.com/tech/2016/11/01/linux-screen-command.html" />
+<meta property="og:url" content="https://chumbok.com/tech/2016/11/01/linux-screen-command.html" />
+<meta property="og:site_name" content="Chumbok IT" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-11-01T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="লিনাক্স স্ক্রীন(screen) কমান্ড" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Maruf Hassan"},"description":"লিনাক্স স্ক্রীন চিটশীট","@type":"BlogPosting","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://chumbok.com/assets/img/logo.png"},"name":"Maruf Hassan"},"headline":"লিনাক্স স্ক্রীন(screen) কমান্ড","dateModified":"2016-11-01T00:00:00+00:00","datePublished":"2016-11-01T00:00:00+00:00","url":"https://chumbok.com/tech/2016/11/01/linux-screen-command.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://chumbok.com/tech/2016/11/01/linux-screen-command.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://chumbok.com/feed.xml" title="Chumbok IT" /><script async src="https://www.googletagmanager.com/gtag/js?id=UA-195294918-1"></script>
+<script>
+  window['ga-disable-UA-195294918-1'] = window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){window.dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-195294918-1');
+</script>
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+<link rel="manifest" href="/assets/favicons/site.webmanifest">
+<link rel="mask-icon" href="/assets/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="google-site-verification" content="1pfjzwnTsYJHom5-ZVcopsS9a0j6ynVmY1NEB1ojvNo" />
+<meta name="yandex-verification" content="043d10bd78a9ab9a" />
+<meta name="msvalidate.01" content="4911C8B76D82E3706A1322259D87D2BD" /></head>
+<body><header class="site-header">
+
+    <div class="wrapper"><div class="header">
+            <div class="container"><nav class="site-nav">
+                    <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+                    <label for="nav-trigger">
+                      <span class="menu-icon">
+                        <svg viewBox="0 0 18 15" width="18px" height="15px">
+                          <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+                        </svg>
+                      </span>
+                    </label>
+
+                    <div class="trigger"><a class="page-link" href="/services/">Services</a><a class="page-link" href="/blogs/">Blogs</a><a class="page-link" href="/about/">About Us</a><a class="page-link" href="/contact/">Contact</a></div>
+                </nav><div class="logo">
+                    <a href="/"><img width="50px" height="50px" alt="Chumbok IT" src="/assets/img/logo.png">&nbsp;&nbsp;Chumbok IT</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</header><main class="page-content" aria-label="Content">
+    <div class="wrapper">
+        <div class="container">
+            <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">লিনাক্স স্ক্রীন(screen) কমান্ড</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2016-11-01T00:00:00+00:00" itemprop="datePublished">
+        Nov 1, 2016
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Maruf Hassan</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>লিনাক্স স্ক্রীন চিটশীট</p>
+
+<p>স্ক্রীন কি?<br />
+লিনাক্স টার্মিনালের একটা প্রগ্রাম চালু করে টার্মিনাল থেকে বের হয়ে গেলেও প্রোগ্রাম বন্ধ হবে না, এমন একটা টুলস।</p>
+
+<p>কি কাজে লাগে?<br />
+সার্ভারে কাজ করার সময়, অনেক সময় বিভিন্ন জিনিষ সাময়িক সময়ের জন্য চালু করে রেখে দিতে চাই।</p>
+
+<p>ইন্সটলেশন</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
+sudo apt-get install screen&lt;/pre&gt;
+</code></pre></div></div>
+
+<p>ভার্সন দেখা <code class="language-plaintext highlighter-rouge">Ctrl-a v</code></p>
+
+<p>হেল্প দেখা <code class="language-plaintext highlighter-rouge">Ctrl-a ?</code></p>
+
+<p>স্ক্রীনে নতুন উইন্ডো তৈরি করা <code class="language-plaintext highlighter-rouge">Ctrl-a c</code></p>
+
+<p>উইন্ডো পরিবর্তন করা <code class="language-plaintext highlighter-rouge">Ctrl-a n</code> // এখানে n = 0 থেকে শুরু …</p>
+
+<p>আগের উইন্ডোতে ফিরে আসা <code class="language-plaintext highlighter-rouge">Ctrl-a p</code></p>
+
+<p>কতগুলা উইন্ডো আছে তা দেখা <code class="language-plaintext highlighter-rouge">Ctrl-a w</code></p>
+
+<p>স্ক্রীন থেকে বের হয়ে আসা ( প্রোগ্রাম চালু থাকবে) বা ডিটাচ <code class="language-plaintext highlighter-rouge">Ctrl-a d</code></p>
+
+<p>সেশনে থাকা অবস্থায় পুনরায় স্ক্রীনে ফেরত যাওয়া বা রিএটাচ <code class="language-plaintext highlighter-rouge">screen –r</code></p>
+
+<p>আবার স্ক্রীনে যাওয়া<br />
+১। লিস্ট দেখা <code class="language-plaintext highlighter-rouge">screen –ls</code>
+২। নাম্বার দিয়ে রিএটাচ <code class="language-plaintext highlighter-rouge">screen –r 1835</code></p>
+
+<p>বিস্তারিত<br />
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-screen-on-an-ubuntu-cloud-server</p>
+
+
+  </div><a class="u-url" href="/tech/2016/11/01/linux-screen-command.html" hidden></a>
+</article>
+
+        </div>
+    </div>
+</main><footer class="site-footer h-card">
+    <data class="u-url" href="/"></data>
+
+    <div class="wrapper">
+        <div class="container">
+            <div class="footer-col-wrapper">
+                <div class="footer-col">
+                    <p class="feed-subscribe">
+                        <a href="/feed.xml">
+                            <svg class="svg-icon orange">
+                                <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+                            </svg><span>Subscribe</span>
+                        </a>
+                    </p>
+                    <ul class="contact-list">
+                        <li class="p-name">Chumbok IT</li>
+                        <li><a class="u-email" href="mailto:mahmood@chumbok.com">mahmood@chumbok.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <p>Grow business using software.</p>
+                </div>
+            </div>
+
+            <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://www.facebook.com/ChumbokIT" target="_blank" title="ChumbokIT"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#facebook"></use></svg></a></li><li><a rel="me" href="https://github.com/Chumbok" target="_blank" title="Chumbok"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://www.linkedin.com/company/chumbok-it" target="_blank" title="chumbok-it"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg></a></li><li><a rel="me" href="https://twitter.com/ChumbokIT" target="_blank" title="ChumbokIT"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul></div>
+        </div>
+    </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://chumbok.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://chumbok.com/" rel="alternate" type="text/html" /><updated>2022-05-29T10:15:47+00:00</updated><id>https://chumbok.com/feed.xml</id><title type="html">Chumbok IT</title><subtitle>Grow business using software.</subtitle><author><name>Chumbok IT</name><email>mahmood@chumbok.com</email></author><entry><title type="html">Linux server got hacked? Todos for beginners</title><link href="https://chumbok.com/tech/hack/2018/01/11/linux-server-got-hacked-to-dos-for-beginners.html" rel="alternate" type="text/html" title="Linux server got hacked? Todos for beginners" /><published>2018-01-11T04:07:13+00:00</published><updated>2018-01-11T04:07:13+00:00</updated><id>https://chumbok.com/tech/hack/2018/01/11/linux-server-got-hacked-to-dos-for-beginners</id><content type="html" xml:base="https://chumbok.com/tech/hack/2018/01/11/linux-server-got-hacked-to-dos-for-beginners.html">&lt;p&gt;&lt;img src=&quot;/assets/images/2018-01/104168549-hack.1910x1000.jpg&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Just got email from server provided complaining about spamming from your server? CPU usages is higher than expected? Some process toke all your memory? Or OS acting weird?&lt;/p&gt;
+
+&lt;p&gt;Example snippets are relevant to Debian/Ubuntu, try look for command for different linux distribution.&lt;/p&gt;
+
+&lt;p&gt;Change password for both root and your user. Follow &lt;a href=&quot;https://stackoverflow.com/questions/9596108/how-do-i-change-my-password-in-linux&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;stackoverflow&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Check what changed in /etc and /var in last 2 days:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;find /etc -mtime -2&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;find /var -mtime -2&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;If you haven’t changed it, somebody did. Decide what to do with that changes.&lt;/p&gt;
+
+&lt;p&gt;Install ClamAV:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo apt-get install clamav
+sudo freshclam
+sudo apt install clamav-daemon
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Search for infected files:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo clamscan --max-filesize=3999M --max-scansize=3999M --exclude-dir=/sys/* -i -r /&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Checks for signs of a &lt;a href=&quot;https://en.wikipedia.org/wiki/Rootkit&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;rootkit&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;Install chkrootkit:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo apt-get install chkrootkit&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Run chkrootkit:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo chkrootkit&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;You might get some false positive, don’t panic. Google.&lt;/p&gt;
+
+&lt;p&gt;Security vulnerabilities comes with negligence, update your OS:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo apt-get update &amp;amp;&amp;amp; time sudo apt-get dist-upgrade&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Some great links that I found:&lt;br /&gt;
+&lt;a href=&quot;https://security.stackexchange.com/questions/7443/how-do-you-know-your-server-has-been-compromised&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;StackExchange – How do you know your server has been compromised?&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Cheers!&lt;/p&gt;</content><author><name>Mossaddeque Mahmood</name></author><category term="Tech" /><category term="Hack" /><category term="Debian" /><category term="Ubuntu" /><category term="Linux" /><category term="Hack" /><summary type="html"></summary></entry><entry><title type="html">Debug HTTP calls from code using Wireshark</title><link href="https://chumbok.com/programming/tip%20and%20tricks/2017/11/16/debug-http-calls-from-code-using-wireshark.html" rel="alternate" type="text/html" title="Debug HTTP calls from code using Wireshark" /><published>2017-11-16T15:27:55+00:00</published><updated>2017-11-16T15:27:55+00:00</updated><id>https://chumbok.com/programming/tip%20and%20tricks/2017/11/16/debug-http-calls-from-code-using-wireshark</id><content type="html" xml:base="https://chumbok.com/programming/tip%20and%20tricks/2017/11/16/debug-http-calls-from-code-using-wireshark.html">&lt;h2 id=&quot;wireshark-filter&quot;&gt;Wireshark Filter&lt;/h2&gt;
+
+&lt;p&gt;Http calls from code are pretty common now a days. Sometime it is very difficult to understand when calls are failing, 
+lot of things could go wrong. For example -&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Server firewall might be blocking the call.&lt;/li&gt;
+  &lt;li&gt;My firewall could be the issue.&lt;/li&gt;
+  &lt;li&gt;Maybe server not accepting the call because I’m not sending right param or header.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;However, one of my favourite tool to debug this kind of situation &lt;a href=&quot;https://www.wireshark.org&quot;&gt;Wireshark&lt;/a&gt;. Install it 
+from &lt;a href=&quot;https://www.wireshark.org/&quot;&gt;here&lt;/a&gt;. You can check this &lt;a href=&quot;https://youtu.be/rLfYuO6pdVA&quot;&gt;video&lt;/a&gt; to learn it or see 
+tutorial online.&lt;/p&gt;
+
+&lt;p&gt;Once you have installed and running the application, you can separate network calls that you are making from your code 
+using filter.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2017-11/Wireshark_screenshot.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Use following filter:
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ip.dst == 10.200.96.106 &amp;amp;&amp;amp; http&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;ip.dst&lt;/em&gt; is the ip of destination server and _http_is refers to calls from browser.&lt;/p&gt;
+
+&lt;p&gt;Happy debugging 🙂&lt;/p&gt;</content><author><name>Mossaddeque Mahmood</name></author><category term="Programming" /><category term="Tip and Tricks" /><category term="Debugging" /><category term="Wireshark" /><summary type="html">Wireshark Filter</summary></entry><entry><title type="html">Attach debugger in IntelliJ with Spring Boot application</title><link href="https://chumbok.com/programming/tip%20and%20tricks/2017/11/05/attach-debugger-in-intellij-with-spring-boot-application.html" rel="alternate" type="text/html" title="Attach debugger in IntelliJ with Spring Boot application" /><published>2017-11-05T00:11:19+00:00</published><updated>2017-11-05T00:11:19+00:00</updated><id>https://chumbok.com/programming/tip%20and%20tricks/2017/11/05/attach-debugger-in-intellij-with-spring-boot-application</id><content type="html" xml:base="https://chumbok.com/programming/tip%20and%20tricks/2017/11/05/attach-debugger-in-intellij-with-spring-boot-application.html">&lt;p&gt;&lt;img src=&quot;/assets/images/2017-11/intellij-idea_logo.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you run your java application inside the IntelliJ, you can do it with the green debug button. But, if you are 
+running the application from command line, like me, it’s the way to go -&lt;/p&gt;
+
+&lt;p&gt;Step 1: Run your application with debug jvm arguments.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ mvn spring-boot:run -Drun.jvmArguments=&quot;-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005&quot;&amp;lt;br /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Step 2: Configure IntelliJ.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Select menu Run -&amp;gt; Edit Configurations&lt;/li&gt;
+  &lt;li&gt;Create new Remote Configuration. Default configuration works with 5005 port. Change if you see fit.&lt;/li&gt;
+  &lt;li&gt;Connect application by running (green bug icon!) Remote Configuration created on last step.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Step 3: Happy debugging 🙂&lt;/p&gt;</content><author><name>Mossaddeque Mahmood</name></author><category term="Programming" /><category term="Tip and Tricks" /><category term="Commandline" /><category term="Intellij" /><category term="Debugging" /><category term="Java" /><category term="Spring Boot" /><summary type="html"></summary></entry><entry><title type="html">Manage JDKs in MacOS</title><link href="https://chumbok.com/programming/tip%20and%20tricks/2017/11/05/manage-jdk-in-macos.html" rel="alternate" type="text/html" title="Manage JDKs in MacOS" /><published>2017-11-05T00:11:19+00:00</published><updated>2017-11-05T00:11:19+00:00</updated><id>https://chumbok.com/programming/tip%20and%20tricks/2017/11/05/manage-jdk-in-macos</id><content type="html" xml:base="https://chumbok.com/programming/tip%20and%20tricks/2017/11/05/manage-jdk-in-macos.html">&lt;p&gt;&lt;img src=&quot;/assets/images/2018-01/java.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Install JDK 9 in MacOS using &lt;a href=&quot;https://brew.sh/&quot;&gt;Homebrew&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew update
+brew cask install java
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;All Java version get installed here: /Library/Java/JavaVirtualMachines lets take a look.&lt;br /&gt;
+ls -la /Library/Java/JavaVirtualMachinesList installed JDKs in your OSX:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$/usr/libexec/java_home -V
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You should get result like this:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Matching Java Virtual Machines (5):
+ 9.0.1, x86_64: &quot;Java SE 9.0.1&quot; /Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home
+ 1.8.0_121, x86_64: &quot;Java SE 8&quot; /Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home
+ 1.7.0_80, x86_64: &quot;Java SE 7&quot; /Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home
+ 1.6.0_65-b14-468, x86_64: &quot;Java SE 6&quot; /Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+ 1.6.0_65-b14-468, i386: &quot;Java SE 6&quot; /Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home&amp;lt;/pre&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Install jenv: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;brew install jenv&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Set JDK by following &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jenv&lt;/code&gt; commands: http://www.jenv.be/&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;em&gt;Tested on macOS Sierra.&lt;/em&gt;&lt;/p&gt;</content><author><name>Mossaddeque Mahmood</name></author><category term="Programming" /><category term="Tip and Tricks" /><category term="Java" /><category term="JDK" /><category term="JDK9" /><category term="MacOS" /><category term="jenv" /><summary type="html"></summary></entry><entry><title type="html">লিনাক্স স্ক্রীন(screen) কমান্ড</title><link href="https://chumbok.com/tech/2016/11/01/linux-screen-command.html" rel="alternate" type="text/html" title="লিনাক্স স্ক্রীন(screen) কমান্ড" /><published>2016-11-01T00:00:00+00:00</published><updated>2016-11-01T00:00:00+00:00</updated><id>https://chumbok.com/tech/2016/11/01/linux-screen-command</id><content type="html" xml:base="https://chumbok.com/tech/2016/11/01/linux-screen-command.html">&lt;p&gt;লিনাক্স স্ক্রীন চিটশীট&lt;/p&gt;
+
+&lt;p&gt;স্ক্রীন কি?&lt;br /&gt;
+লিনাক্স টার্মিনালের একটা প্রগ্রাম চালু করে টার্মিনাল থেকে বের হয়ে গেলেও প্রোগ্রাম বন্ধ হবে না, এমন একটা টুলস।&lt;/p&gt;
+
+&lt;p&gt;কি কাজে লাগে?&lt;br /&gt;
+সার্ভারে কাজ করার সময়, অনেক সময় বিভিন্ন জিনিষ সাময়িক সময়ের জন্য চালু করে রেখে দিতে চাই।&lt;/p&gt;
+
+&lt;p&gt;ইন্সটলেশন&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
+sudo apt-get install screen&amp;lt;/pre&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;ভার্সন দেখা &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl-a v&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;হেল্প দেখা &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl-a ?&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;স্ক্রীনে নতুন উইন্ডো তৈরি করা &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl-a c&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;উইন্ডো পরিবর্তন করা &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl-a n&lt;/code&gt; // এখানে n = 0 থেকে শুরু …&lt;/p&gt;
+
+&lt;p&gt;আগের উইন্ডোতে ফিরে আসা &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl-a p&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;কতগুলা উইন্ডো আছে তা দেখা &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl-a w&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;স্ক্রীন থেকে বের হয়ে আসা ( প্রোগ্রাম চালু থাকবে) বা ডিটাচ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl-a d&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;সেশনে থাকা অবস্থায় পুনরায় স্ক্রীনে ফেরত যাওয়া বা রিএটাচ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;screen –r&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;আবার স্ক্রীনে যাওয়া&lt;br /&gt;
+১। লিস্ট দেখা &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;screen –ls&lt;/code&gt;
+২। নাম্বার দিয়ে রিএটাচ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;screen –r 1835&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;বিস্তারিত&lt;br /&gt;
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-screen-on-an-ubuntu-cloud-server&lt;/p&gt;</content><author><name>Maruf Hassan</name></author><category term="tech" /><category term="লিনাক্স" /><summary type="html">লিনাক্স স্ক্রীন চিটশীট</summary></entry><entry><title type="html">Redis ডাটা স্টাকচার</title><link href="https://chumbok.com/tech/2016/03/10/redis-data-structure.html" rel="alternate" type="text/html" title="Redis ডাটা স্টাকচার" /><published>2016-03-10T00:00:00+00:00</published><updated>2016-03-10T00:00:00+00:00</updated><id>https://chumbok.com/tech/2016/03/10/redis-data-structure</id><content type="html" xml:base="https://chumbok.com/tech/2016/03/10/redis-data-structure.html">&lt;p&gt;&lt;strong&gt;Redis ডাটা স্টাকচার&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;রেডিসে ৫ ধরনের ডাটাস্টাকচার আছে। এই পাচঁ ধরনের ডাটা স্ট্রাকচার ঠিক মত বুঝতে পারলেই রেডিস বুঝা শেষ। 🙂&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;স্ট্রিং (String)&lt;/li&gt;
+  &lt;li&gt;হ্যাশ (Hash)&lt;/li&gt;
+  &lt;li&gt;লিস্ট (List)&lt;/li&gt;
+  &lt;li&gt;সেট (Set)&lt;/li&gt;
+  &lt;li&gt;অর্ডার সেট (Order Set)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;1. স্ট্রিং (String)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;এটা সবথেকে সহজ ডাটা স্ট্রাকচার। এখানে ডাটার নাম(key) ও ডাটা মিলে এই ডাটাস্ট্রাকচার তৈরি। সেট (&lt;strong&gt;SET&lt;/strong&gt;) দিয়ে ডাটা রেডিসে জমা রাখে এবং
+গেট(&lt;strong&gt;GET&lt;/strong&gt;) দিয়ে ডাটা রেডিস থেকে বের করে।&lt;/p&gt;
+
+&lt;p&gt;ডাটা জমা রাখতে&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;set &amp;lt;redis-key&amp;gt; &amp;lt;value&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;যেমনঃ&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    SET country:name &quot;Bangladesh&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;এখানে, &lt;strong&gt;country:name&lt;/strong&gt; হল key এবং”&lt;strong&gt;Bangladesh”&lt;/strong&gt; হল ভ্যালু বা আসল ডাটা।&lt;/p&gt;
+
+&lt;p&gt;ডাটা পেতে চাইলে&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get &amp;lt;redis-key&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;যেমনঃ&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    GETcountry:name
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;2. হ্যাশ(Hashes)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;এখানে স্ট্রিং এর মতই একটা কী থাকে এবং তার বিপরীতে অনেকগুলো হ্যাশ কী-ভ্যালু রাখা যায়। ডাটা জমা রাখতে&lt;br /&gt;
+&lt;strong&gt;hmset,&lt;/strong&gt; হ্যাশ ডাটা পাওয়ার জন্য &lt;strong&gt;hget&lt;/strong&gt; এবং সমস্ত ডাটা পাওয়ার জন্য &lt;strong&gt;hgetall&lt;/strong&gt; ব্যাবহার করা হয়ে থাকে।&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ডাটা জমা রাখতে চাইলেঃ&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;hmset &amp;lt;redis-ky&amp;gt; &amp;lt;hash key-value&amp;gt; `&amp;lt;hash key-value&amp;gt;` `&amp;lt;hash key-value&amp;gt;`
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;যেমনঃ&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    HMSET user.info first_name Maruf last_name Hassan profession sw
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;এখানে user.info হল রেডিস কী, first_name হল হ্যাশ কী এবং Maruf হল তার ভ্যালু। একই ভাবে last_name আরেকটা কী তার ভ্যালু হচ্ছে Hassan।&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ডাটা পেতে চাইলেঃ&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;hget &amp;lt;redis-key&amp;gt; &amp;lt;hash-key&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;যেমনঃ&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    hget user.info first_name
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;সমস্ত ডাটা দেখতে চাইলেঃ&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;hgetall &amp;lt;redis-key&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;যেমনঃ&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    hgetall user.info
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;এই পর্ব এখানেই শেষ।&lt;/p&gt;
+
+&lt;h3 id=&quot;related-posts&quot;&gt;Related Posts&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/tech/2016/02/17/what-is-redis-part-1.html&quot;&gt;Redis – পর্ব ১&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Maruf Hassan</name></author><category term="tech" /><category term="টেকনোলজি" /><category term="রেডিস" /><summary type="html">Redis ডাটা স্টাকচার</summary></entry><entry><title type="html">Redis – পর্ব ১</title><link href="https://chumbok.com/tech/2016/02/17/what-is-redis-part-1.html" rel="alternate" type="text/html" title="Redis – পর্ব ১" /><published>2016-02-17T00:00:00+00:00</published><updated>2016-02-17T00:00:00+00:00</updated><id>https://chumbok.com/tech/2016/02/17/what-is-redis-part-1</id><content type="html" xml:base="https://chumbok.com/tech/2016/02/17/what-is-redis-part-1.html">&lt;p&gt;&lt;strong&gt;Redis কি?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Redis হল একটা ডাটা স্টোরেজ ইঞ্জিন। যেখানে ডাটার একটা নাম দেয়া থাকে। ডাটার নামকে বলে key এবং ডাটাকে বলা হয় value। কি-ভ্যালু ছাড়াও রেডিসে 
+বেশ কয়েক ভাবে ডাটা রাখা যায়। তাই রেডিসকে অনেকে ডাটা স্টাকচার ইঞ্জিনও বলে থাকে।&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2016-02/redis-logo.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;কেন রেডিস&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;যদি আপনি উচ্চ ক্ষমতা সম্পন্ন এবং খুব বেশি লোড নিতে সক্ষম এমন একটা ওয়েব এপ্লিকেশন বানাতে চান তাহলে আপনার জন্য রেডিস।&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;রেডিস সব কিছু মেমরীতে নিয়ে কাজ করে&lt;/li&gt;
+  &lt;li&gt;আমাদের প্রয়োজনীয় প্রায় সব ধরনের ডাটা স্ট্রাকচার সাপোর্ট করে&lt;/li&gt;
+  &lt;li&gt;রেডিসকে অনেকগুলি স্লেভ সার্ভারে সেটাপ দেয়া যায়। মাস্টার-স্লেভ ক্লাস্টারিং করে।&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Redis এর সুবিধা?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;মারাত্মক দ্রুত। রেডিস প্রতি সেকেন্ড ১লক্ষ ১০ হাজার টি সেট( SET) এবং ৮১ হাজার গেট (GET) করতে পারে।&lt;/li&gt;
+  &lt;li&gt;সব কাজ করে কম্পিটারের মেমরি(RAM) থেকে। হার্ড ডিস্ক ব্যাবহার করে শুধু ডাটা জমা রাখার কাজে।&lt;/li&gt;
+  &lt;li&gt;প্রায় সব কাজই (&lt;strong&gt;atomic&lt;/strong&gt;) এক স্থান থেকে একই সময়ে করা হয়। যার ফলে অনেকে এক সাথে কাজ করলেও সরার পরিবর্তন সবাই সাথে সাথেই পেয়ে যায়&lt;/li&gt;
+  &lt;li&gt;রেডিসকে নানা ভাবে ব্যাবহার করা যায়। ক্যাশ হিসাবে, মেসেজিং কিউ আকারে, আবার স্বল্প সময়ের জন্য ডাটা জমা রাখার কাজে।&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;উবুন্টুতে রেডিস ইন্সটলেশন&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$sudo apt-get update
+$sudo apt-get install redis-server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;তারপর নিচের কমান্ড লিখে রেডিস কনসোলে চলে যান&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$redis-cli
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;যদি সব কিছু ঠিকঠাক থাকে তাহলে নিচের মত দেখাবে&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;redis 127.0.0.1:6379&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;আর আপনি &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ping&lt;/code&gt; লিখলে সে আপনাকে &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PONG&lt;/code&gt; উত্তর দিবে।&lt;/p&gt;
+
+&lt;p&gt;এই পর্ব এখানেই শেষ।&lt;/p&gt;
+
+&lt;h3 id=&quot;related-posts&quot;&gt;Related Posts&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/tech/2016/03/10/redis-data-structure.html&quot;&gt;Redis ডাটা স্টাকচার&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Maruf Hassan</name></author><category term="tech" /><category term="টেকনোলজি" /><category term="রেডিস" /><summary type="html">Redis কি?</summary></entry></feed>
